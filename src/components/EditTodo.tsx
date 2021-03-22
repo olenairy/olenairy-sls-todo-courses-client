@@ -15,8 +15,6 @@ interface EditTodoProps {
   auth: Auth
   history: History
 }
-//  name: string dueDate: string  done: boolean
-
  
 interface EditTodoState {
   todos: Todo[]
@@ -36,15 +34,17 @@ export class EditTodo extends React.PureComponent<EditTodoProps,EditTodoState>  
     loadingTodos: true,
     dat: '',
     nam: '',
-    don: true,
+    don: false,
     todId: this.props.match.params.todoId
   
   }  
   
-  wait = (ms: number) => new Promise(res => setTimeout(res, ms));
+  // wait = (ms: number) => new Promise(res => setTimeout(res, ms));
   
   handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    
     this.setState({ nam: event.target.value })
+    
   }
 
   handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -76,6 +76,9 @@ export class EditTodo extends React.PureComponent<EditTodoProps,EditTodoState>  
             dat: todo.dueDate,
             don: todo.done
           })
+          // check empty done
+          console.log(' check empty done', this.state.don)
+          if (this.state.don == undefined ) this.setState({ don: false})
           
         }
       })
@@ -90,7 +93,7 @@ export class EditTodo extends React.PureComponent<EditTodoProps,EditTodoState>  
     
 
 
-     console.log('old name - ', this.state.nam)
+     console.log(' name - ', this.state.nam)
             
     return (
       
@@ -122,6 +125,7 @@ export class EditTodo extends React.PureComponent<EditTodoProps,EditTodoState>  
             actionPosition="left"
             placeholder={this.state.nam}
             onChange={this.handleNameChange}
+            value={this.state.nam}
           />
             
           </Form.Field>

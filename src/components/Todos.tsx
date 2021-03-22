@@ -195,7 +195,7 @@ export class Todos extends React.PureComponent<TodosProps, TodosState> {
         {this.state.todos.map((todo, pos) => {
           
           return (
-            // style={{ background: 'rgb(170 250 220)'}} rgb(151 217 190 / 26%)
+            
             
               <Grid.Row key={todo.todoId} style = {{background: todo.done ? 'rgb(135 236 186)' : 'rgb(207 230 218)' , border: '4px solid #d7e8e3', borderRadius: '0.857143rem', margin: '1px'}}>
                 <Grid.Column width={1}   floated="left" verticalAlign="middle">
