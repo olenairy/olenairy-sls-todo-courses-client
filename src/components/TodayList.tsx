@@ -134,7 +134,7 @@ export class TodayList extends React.PureComponent<TodayListProps,TodayListState
     } catch {
       //alert('Email send failed')
       this.state.header = 'Something wrong:'
-      this.state.contmes = 'Your today ToDos List wasn\'t sent'
+      this.state.contmes = 'Your today ToDos List wasn\'t sent. (for Free Tier AWS you can type only this email: olenairy@gmail.com)'
     }
   }
   
