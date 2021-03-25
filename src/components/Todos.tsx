@@ -51,6 +51,11 @@ export class Todos extends React.PureComponent<TodosProps, TodosState> {
     
     this.props.history.push(`/todos/${todoId}/edittext`)
   }
+  onTodayListClick = () => {
+    
+    this.props.history.push(`/todos/tostart`)
+  }
+ 
   onTodoCreate = async (event: React.ChangeEvent<HTMLButtonElement>) => {
     try {
       const dueDate = this.calculateDueDate()
@@ -124,14 +129,30 @@ export class Todos extends React.PureComponent<TodosProps, TodosState> {
     return (
       <div>
         <Header as="h1">TODOs</Header>
-
+        {this.renderButton()}
         {this.renderCreateTodoInput()}
 
         {this.renderTodos()}
       </div>
     )
   }
+  renderButton() {
+    return (
 
+      <Button 
+      icon
+      color='teal'
+      labelPosition='right'
+      onClick={() => this.onTodayListClick()}
+      
+      floated="right"
+    >
+      Todays List
+      <Icon name="arrow circle right" />
+    </Button>
+
+    )
+  }
   renderCreateTodoInput() {
     return (
       <Grid.Row>

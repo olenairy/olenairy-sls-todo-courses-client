@@ -5,6 +5,7 @@ import { Grid, Menu, Segment } from 'semantic-ui-react'
 import Auth from './auth/Auth'
 import { AddImageTodo } from './components/AddImageTodo'
 import { EditTodo } from './components/EditTodo'
+import { TodayList } from './components/TodayList'
 import { LogIn } from './components/LogIn'
 import { NotFound } from './components/NotFound'
 import { Todos } from './components/Todos'
@@ -125,6 +126,13 @@ export default class App extends Component<AppProps, AppState> {
           exact
           render={props => {
             return <EditTodo{...props} auth={this.props.auth} />
+          }}
+        />
+          <Route
+          path="/todos/tostart"
+          exact
+          render={props => {
+            return <TodayList{...props} auth={this.props.auth} />
           }}
         />
 

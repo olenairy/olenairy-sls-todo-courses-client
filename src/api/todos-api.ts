@@ -3,6 +3,7 @@ import { Todo } from '../types/Todo';
 import { CreateTodoRequest } from '../types/CreateTodoRequest';
 import Axios from 'axios'
 import { UpdateTodoRequest } from '../types/UpdateTodoRequest';
+import { SendEmailRequest } from '../types/SendEmailRequest';
 
 export async function getTodos(idToken: string): Promise<Todo[]> {
   console.log('Fetching todos')
@@ -16,6 +17,34 @@ export async function getTodos(idToken: string): Promise<Todo[]> {
   console.log('Todos:', response.data)
   return response.data.items
 }
+
+export async function getTodayTodos(idToken: string): Promise<Todo[]> {
+  console.log('Fetching todos')
+
+  const response = await Axios.get(`${apiEndpoint}/todos/tostart`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${idToken}`
+    },
+  })
+  console.log('TodayTodos:', response.data)
+  return response.data.items
+}
+export async function sendEmail(
+  idToken: string,
+  newEmail: SendEmailRequest
+
+//  "email":"olena.ch@yahoo.com",
+//  "name":"Ptetty ToDos App" 
+): Promise<void> {
+  const response = await Axios.post(`${apiEndpoint}/email/send`,  JSON.stringify(newEmail), {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${idToken}`
+    }
+  })
+}
+
 
 export async function createTodo(
   idToken: string,
