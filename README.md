@@ -1,11 +1,4 @@
 # My Pretty ToDos App
-### Capstone Project
-```
-Student: Olena Chudnovets
-Course: Cloud Developer
-Project: Serverless TODO Application
-Data: Marth 22 2021
-```
 
 ## Git repositoryes: 
 
