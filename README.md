@@ -57,7 +57,7 @@ https://github.com/olenairy/olenairy-sls-todo-courses/blob/master/Pretty_ToDo.po
 Result of tests from the collection:
 
 
-<img width="900" alt="Postman" src="https://user-images.githubusercontent.com/67039993/112073246-73202e00-8b52-11eb-84b4-c31e5dac1cef.png">
+
 
 
 ## Available Scripts
